@@ -37,11 +37,14 @@ const Login = () => {
             placeholder="*********"
             className="input input-password"
           />
-          <input
-            type="submit"
+          <button
+            onClick={handleSubmit}
             value="Log in"
             className="primary-button login-button"
-          />
+          >
+            {" "}
+            Log in{" "}
+          </button>
           <a href="/">Forgot my password</a>
         </form>
         <button
