@@ -6,9 +6,11 @@ import AppContext from "../context/AppContext";
 import iconMenu from "@icons/icon_menu.svg";
 import logo from "@logos/logo_yard_sale.svg";
 import shoppingCard from "@icons/icon_shopping_cart.svg";
+import MyOrder from "@containers/MyOrder";
 
 const Header = () => {
   const [toggle, setToogle] = useState(false);
+  const [toggleOrder, setToobleOrder] = useState(false)
   const { state } = useContext(AppContext);
   const handleTootle = () => {
     setToogle(!toggle);
@@ -45,13 +47,14 @@ const Header = () => {
           <li className="navbar-email" onClick={handleTootle}>
             platzi@example.com
           </li>
-          <li className="navbar-shopping-cart">
+          <li className="navbar-shopping-cart" onClick={()=> setToobleOrder(!toggleOrder)}>
             <img src={shoppingCard} alt="shopping cart" />
             {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
           </li>
         </ul>
       </div>
       {toggle && <Menu />}
+      {toggleOrder && <MyOrder/>}
     </nav>
   );
 };
